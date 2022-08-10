@@ -1,8 +1,5 @@
-let titulo2=document.getElementById("titulo2");
-titulo2.innerText="Para ingresar deberás loguearte"; //modifique el texto de inicio
-
-
-// //usuario ya regitrado debe ingresar sus credenciales para ingresar a la APP de compras
+ 
+ //usuario ya regitrado debe ingresar sus credenciales para ingresar a la APP de compras
 function inicio(){
     let clave=1234;
     let usuario="fernando";
@@ -251,3 +248,17 @@ let campoFiltro=document.getElementById("filtrar");
 let campoCantidad=document.getElementById("cantidad");
 campoFiltro.value="Ingrese filtro"; //value permite asignar un dato en el campo Filtrar
 campoCantidad.value=productos.length; //ingreso con length el stock que tiene (cantidad) Viene de la funcion de arriba de productos por eso me dice 5 en cantidad. Hay 5 productos.
+
+//comprando chaleco negro
+let miBoton=document.getElementById("miBoton"); 
+miBoton.addEventListener("click",interactuar);
+function interactuar(){
+    alert("Agregaste 1 producto al carrito");
+}
+
+//comprando chaleco verde
+let miBoton2=document.getElementById("miBoton2"); 
+miBoton2.addEventListener("click",interactuar);
+function interactuar(){
+    alert("Agregaste 1 producto al carrito");
+}
