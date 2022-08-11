@@ -248,6 +248,8 @@ let campoFiltro=document.getElementById("filtrar");
 let campoCantidad=document.getElementById("cantidad");
 campoFiltro.value="Ingrese filtro"; //value permite asignar un dato en el campo Filtrar
 campoCantidad.value=productos.length; //ingreso con length el stock que tiene (cantidad) Viene de la funcion de arriba de productos por eso me dice 5 en cantidad. Hay 5 productos.
+campoCantidad.onkeydown=()=>{alert("Presionaste una tecla")};//avisamos que presiono una tecla
+campoCantidad.onkeyup=()=>{alert("Soltaste una tecla")};//avisamos que solto una tecla
 
 //comprando chaleco negro
 let miBoton=document.getElementById("miBoton"); 
@@ -262,3 +264,6 @@ miBoton2.addEventListener("click",interactuar);
 function interactuar(){
     alert("Agregaste 1 producto al carrito");
 }
+
+
+
