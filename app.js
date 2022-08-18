@@ -30,7 +30,11 @@ form.addEventListener("submit", e=>{
     }
 })
 
+<<<<<<< HEAD
 let miBoton=document.getElementById("miBoton"); //CARTEL DE INGRESO A LA PAGINA CON UN ALERT
+=======
+let miBoton=document.getElementById("miBoton");
+>>>>>>> 2bed3b17c2c513743e37ac9e49d482258fea8325
 miBoton.addEventListener("click",entrar);
 function entrar(){
     window.location="ingreso.html";

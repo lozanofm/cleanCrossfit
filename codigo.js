@@ -275,7 +275,10 @@ let chalecoActual= localStorage.getItem("chale");//aca accedo al chalecoActual
 // console.log(chalecoActual);
 function interactuar(){
     alert("Agregaste 1 producto al carrito");
+<<<<<<< HEAD
     alert(chalecoActual);
+=======
+>>>>>>> 2bed3b17c2c513743e37ac9e49d482258fea8325
 }
 
 
