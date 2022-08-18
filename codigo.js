@@ -1,21 +1,21 @@
  
- //usuario ya regitrado debe ingresar sus credenciales para ingresar a la APP de compras
-function inicio(){
-    let clave=1234;
-    let usuario="fernando";
-    //una vez que acepto el ingreso le muestra al usuario los productos disponibles a continuacion
-    const listaBox=["Chalecos","Calleras","Muñqueras","Cinturones","Magnesio",];
+//  //usuario ya regitrado debe ingresar sus credenciales para ingresar a la APP de compras
+// function inicio(){
+//     let clave=1234;
+//     let usuario="fernando";
+//     //una vez que acepto el ingreso le muestra al usuario los productos disponibles a continuacion
+//     const listaBox=["Chalecos","Calleras","Muñqueras","Cinturones","Magnesio",];
         
 
-    if (document.form.password.value==clave && document.form.login.value==usuario){
-        alert("Bienvenido a Clean Crossfit "+usuario);
-        alert(listaBox);
-        window.location="ingreso.html";
-    }else{
-        alert("Usuario o Password incorrectos, intente nuevamente:");
-    }
+//     if (document.form.password.value==clave && document.form.login.value==usuario){
+//         alert("Bienvenido a Clean Crossfit "+usuario);
+//         alert(listaBox);
+//         window.location="ingreso.html";
+//     }else{
+//         alert("Usuario o Password incorrectos, intente nuevamente:");
+//     }
 
-}
+// }
 
 //APLICAMOS DOM
 let titulo=document.getElementById("titulo");//Accedo a titulo a traves de getElementById
@@ -30,7 +30,7 @@ parrafos[0].innerText=new Date().toLocaleString(); //aca le remplazo texto del p
 
 
 
-//usuario ingresa lo que quiere comprar 
+//usuario ingresa lo que quiere comprar a traves de la funcion reservar
 function reservar(){ 
 
     let articulos=prompt("INGRESA LOS PRODUCTOS QUE DESEAS COMPRAR:\nCHALECO\nCALLERAS\nMUÑEQUERAS\nCINTURON\nMAGNESIO\n(s-para salir)");
@@ -96,8 +96,7 @@ function reservar(){
     }
     
     //MOSTRAMOS EL DETALLE DE LOS PRODUCTOS
-    //Muestra el detalle de chalecos
-    
+   
     class Chalec{
         //constructor de objetos de tipo Chalecos
         constructor(tipo,color,modelo, precio){
@@ -243,11 +242,23 @@ const productos = [
 {  id: 5,  nombre: "Magnesio" , precio: 2000}
 ];
 
+//JSON (guardo en localStorage el array de objetos "productos" a traves de Json pasandolo a string con stringify)
+const productosAjson = JSON.stringify(productos);
+localStorage.setItem("prodCross", productosAjson);//clave: prodCross, valor: productosAjson
+console.log(productosAjson);//lo muestro por consola
+
+let prodDeJson = localStorage.getItem("prodCross");//vuelvo a pasar a objeto lo que estaba en JSON
+console.log (productosAjson);
+const prodJsonAobjeto= JSON.parse(prodDeJson);
+console.log(prodJsonAobjeto);
+
 //campos de texto
 let campoFiltro=document.getElementById("filtrar");
 let campoCantidad=document.getElementById("cantidad");
 campoFiltro.value="Ingrese filtro"; //value permite asignar un dato en el campo Filtrar
 campoCantidad.value=productos.length; //ingreso con length el stock que tiene (cantidad) Viene de la funcion de arriba de productos por eso me dice 5 en cantidad. Hay 5 productos.
+campoCantidad.onkeydown=()=>{alert("Presionaste una tecla")};//avisamos que presiono una tecla
+campoCantidad.onkeyup=()=>{alert("Soltaste una tecla")};//avisamos que solto una tecla
 
 //comprando chaleco negro
 let miBoton=document.getElementById("miBoton"); 
@@ -256,9 +267,16 @@ function interactuar(){
     alert("Agregaste 1 producto al carrito");
 }
 
-//comprando chaleco verde
+//comprando chaleco verde y lo guardo en LOCAL_STORAGE
 let miBoton2=document.getElementById("miBoton2"); 
 miBoton2.addEventListener("click",interactuar);
+localStorage.setItem("chale","ChalecoVerde"); //guardo en Storage el chaleco verde que compra el cliente
+let chalecoActual= localStorage.getItem("chale");//aca accedo al chalecoActual
+// console.log(chalecoActual);
 function interactuar(){
     alert("Agregaste 1 producto al carrito");
+    alert(chalecoActual);
 }
+
+
+
